@@ -1,4 +1,4 @@
-# OpenAI API server mockup
+# LLM API server mockup
 This is a simple fastapi based server mock that implements the OpenAI API.
 
 Available endpoints:
