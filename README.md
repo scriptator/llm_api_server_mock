@@ -12,8 +12,7 @@ Instead of running a LLM model to generate completions, it simply returns a resp
 - "lorem_ipsum": returns random "lorem ipsum" text
 
 ## Run via docker:
-```bash
-docker pull ghcr.io/hummerichsander/openai_api_server_mock:v ... # replace ... with the latest version
+```bash # replace ... with the latest version
 ```
 
 Environment variables:
