@@ -12,4 +12,4 @@ COPY ./llm_api_server_mock /app/llm_api_server_mock
 
 LABEL org.opencontainers.image.source="https://github.com/hummerichsander/llm_api_server_mock"
 
-CMD ["poetry", "run", "fastapi", "run", "llm_api_server_mock/main.py", "--port", "8000"]
+CMD ["poetry", "run", "fastapi", "run", "llm_api_server_mock/main.py", "--port", "8080"]
