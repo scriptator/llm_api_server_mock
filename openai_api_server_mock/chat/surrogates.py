@@ -89,13 +89,21 @@ class YesNoSurrogate(ModelSurrogate):
 
     @classmethod
     async def generate(cls, n: int, messages: List[Message]) -> List[str]:
-        if settings.language == "en":
-            return ["Yes" if random.random() > 0.5 else "No"]
-        elif settings.language == "de":
-            return ["Ja" if random.random() > 0.5 else "Nein"]
+        return ["Yes" if random.random() > 0.5 else "No"]
 
 
 YesNoSurrogate.register()
+
+
+class JaNeinSurrogate(ModelSurrogate):
+    name: str = "ja_nein"
+
+    @classmethod
+    async def generate(cls, n: int, messages: List[Message]) -> List[str]:
+        return ["Ja" if random.random() > 0.5 else "Nein"]
+
+
+JaNeinSurrogate.register()
 
 
 async def get_surrogate(model: str) -> ModelSurrogate:
