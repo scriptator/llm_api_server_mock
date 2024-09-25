@@ -5,7 +5,6 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     context_size: int = Field(alias="CONTEXT_SIZE", default=4096)
-    surrogate: str = Field(alias="SURROGATE", default="lorem_ipsum")
     sleep_time: int = Field(alias="SLEEP_TIME", default=0)
     max_concurrent_requests: int = Field(
         alias="MAX_CONCURRENT_REQUESTS", default=10**9
