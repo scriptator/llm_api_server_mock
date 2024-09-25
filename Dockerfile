@@ -10,4 +10,6 @@ RUN poetry install
 
 COPY ./openai_api_server_mock /app/openai_api_server_mock
 
+LABEL org.opencontainers.image.source="https://github.com/hummerichsander/openai_api_server_mock"
+
 CMD ["poetry", "run", "fastapi", "run", "openai_api_server_mock/main.py", "--port", "8000"]
