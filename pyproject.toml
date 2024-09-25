@@ -1,38 +1,21 @@
-[build-system]
-requires = ["setuptools"]
-build-backend = "setuptools.build_meta"
-
-
-[project]
-name = "openai_api_mock"
+[tool.poetry]
+name = "openai-api-server-mock"
 version = "0.1.0"
-description = "A fast api based mock of the openai api."
+description = "A mock for a LLM hosting server exposing the OpenAI Api."
+authors = ["Sander Niels Hummerich <64867257+hummerichsander@users.noreply.github.com>"]
 readme = "README.md"
-requires-python = ">=3.9"
-license = {file = "LICENSE"}
-keywords = ["openai api", "fast api", "LLM"]
-authors = [
-  {name = "Sander Hummerich", email = "sander.hummerich@gmx.de" }
-]
-maintainers = [
-  {name = "Sander Hummerich", email = "sander.hummerich@gmx.de" }
-]
-classifiers = [
-  "Development Status :: 3 - Alpha",
-  "Intended Audience :: Developers",
-  "Topic :: Software Development :: Build Tools",
-  "License :: OSI Approved :: MIT License",
-  "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.9",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
-  "Programming Language :: Python :: 3.12",
-  "Programming Language :: Python :: 3 :: Only",
-]
-dependencies = [
-  "fastapi",
-  "lorem-text",
-]
 
-[project.scripts]
-sample = "sample:main"
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = {extras = ["standard"], version = "^0.115.0"}
+lorem-text = "^2.1"
+pydantic-settings = "^2.5.2"
+pydantic = "^2.9.2"
+
+[tool.poetry.group.dev.dependencies]
+openai = "^1.47.1"
+ipykernel = "^6.29.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

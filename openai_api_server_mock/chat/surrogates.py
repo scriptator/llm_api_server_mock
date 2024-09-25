@@ -94,12 +94,13 @@ class YesNoSurrogate(ModelSurrogate):
         elif settings.language == "de":
             return ["Ja" if random.random() > 0.5 else "Nein"]
 
+
 YesNoSurrogate.register()
 
 
-async def get_surrogate() -> ModelSurrogate:
+async def get_surrogate(model: str) -> ModelSurrogate:
     global available_surrogates
     for surrogate in available_surrogates:
-        if surrogate.name == settings.surrogate:
+        if surrogate.name == model:
             return surrogate
-    raise ValueError(f"Surrogate {settings.surrogate} not found")
+    raise ValueError(f"Surrogate {model} not found.")

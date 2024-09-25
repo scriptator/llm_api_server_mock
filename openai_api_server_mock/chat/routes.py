@@ -1,7 +1,7 @@
 from typing import List
 
 import asyncio
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 
 from .models import CompletionRequest, Usage, CompletionResponse, Choice
 from .surrogates import get_surrogate
@@ -37,7 +37,10 @@ async def create_chat_completion(request: CompletionRequest) -> CompletionRespon
             await asyncio.sleep(settings.sleep_time)
 
         logger.debug(f"Generating {request.n} completion(s)")
-        surrogate = await get_surrogate()
+        try:
+            surrogate = await get_surrogate(request.model)
+        except ValueError as e:
+            raise HTTPException(status_code=400, detail=str(e))
         choices: List[Choice] = []
         for i in range(request.n):
             choice = await surrogate.generate_completion(
