@@ -8,8 +8,8 @@ COPY ./pyproject.toml /app
 RUN pip install poetry
 RUN poetry install
 
-COPY ./openai_api_server_mock /app/openai_api_server_mock
+COPY ./llm_api_server_mock /app/llm_api_server_mock
 
-LABEL org.opencontainers.image.source="https://github.com/hummerichsander/openai_api_server_mock"
+LABEL org.opencontainers.image.source="https://github.com/hummerichsander/llm_api_server_mock"
 
-CMD ["poetry", "run", "fastapi", "run", "openai_api_server_mock/main.py", "--port", "8000"]
+CMD ["poetry", "run", "fastapi", "run", "llm_api_server_mock/main.py", "--port", "8000"]
