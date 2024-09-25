@@ -12,7 +12,9 @@ Instead of running a LLM model to generate completions, it simply returns a resp
 - "lorem_ipsum": returns random "lorem ipsum" text
 
 ## Run via docker:
-```bash # replace ... with the latest version
+```bash
+docker pull ghcr.io/hummerichsander/llm_api_server_mock:latest
+docker run -p 8000:8000 ghcr.io/hummerichsander/llm_api_server_mock:latest
 ```
 
 Environment variables:
