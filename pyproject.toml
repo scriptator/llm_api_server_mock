@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "openai-api-server-mock"
+name = "llm-api-server-mock"
 version = "0.1.0"
 description = "A mock for a LLM hosting server exposing the OpenAI Api."
 authors = ["Sander Niels Hummerich <64867257+hummerichsander@users.noreply.github.com>"]
